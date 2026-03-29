@@ -154,6 +154,15 @@ a, button, input { cursor: crosshair; }
 .nav-status { display: flex; align-items: center; gap: 0.8rem; }
 .nav-tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 1px; color: var(--text-gray); }
 
+/* Human Legacy Section */
+.legacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.legacy-card { padding: 3rem 0; }
+.legacy-card span { display: block; margin-bottom: 1.5rem; font-size: 0.75rem; color: var(--text-white); }
+.legacy-card p { font-size: 1.2rem; color: var(--text-gray); line-height: 1.6; }
+.border-bottom { border-bottom: 1px solid var(--accent); }
+.tracking-wider { letter-spacing: 0.2em; }
+
+
 .hero {
     position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 10%; overflow: hidden;
 }
