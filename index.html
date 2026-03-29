@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVERON - Neural Preservation Protocol</title>
+    <meta name="description" content="EVERON: A Deep-Tech startup bridging biological limitations.">
+    <!-- Deep-Tech Fonts: Space Grotesk & Roboto Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <nav class="navbar blur-nav">
+        <a href="index.html" class="logo" style="color: white; text-decoration: none;">EVERON</a>
+        <div class="nav-status">
+            <span class="status-indicator live"></span>
+            <span class="nav-tag">Accepting pioneers</span>
+        </div>
+    </nav>
+    <section id="hero" class="hero">
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-bg darkened">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content reveal">
+            <div class="sub-tag">// SEQ 00: INITIALIZATION</div>
+            <h1 class="stark-title">EVERON</h1>
+            <p class="tagline">Your body has an expiration date.<br>Your consciousness does not.</p>
+            
+            <form class="waitlist-form stark-form">
+                <input type="email" name="email" placeholder="ENTER EMAIL ADDRESS" required class="input-stark">
+                <button type="submit" class="btn-stark hover-fill">
+                    <span class="btn-text">INITIATE UPLOAD</span>
+                    <!-- Slider for fill effect -->
+                    <div class="fill-slider"></div>
+                </button>
+            </form>
+            <div class="form-feedback"></div>
+            
+            <p class="live-counter">
+                <span class="status-indicator live"></span>
+                ACTIVE PROTOCOLS: <span class="counter-number">3,241</span>
+            </p>
+        </div>
+        
+        <div class="coordinate-marker bottom-right">LAT: 32.7767° N / LON: 96.7970° W</div>
+        <div class="coordinate-marker bottom-left">SYS.V.1.0.4</div>
+    </section>
+    <section class="ticker">
+        <div class="ticker-content">
+            <p>CRITICAL EVENT HORIZON: 2035 &nbsp;&middot;&nbsp; 8,192PB SECURED &nbsp;&middot;&nbsp; 14 PLANETARY NODES ACTIVE &nbsp;&middot;&nbsp; CRITICAL EVENT HORIZON: 2035 &nbsp;&middot;&nbsp; 8,192PB SECURED &nbsp;&middot;&nbsp; 14 PLANETARY NODES ACTIVE</p>
+        </div>
+    </section>
+    <section id="problem" class="problem section-padding reveal">
+        <div class="container">
+            <div class="sub-tag text-center fade-in-up">// SEQ 01: THE IMPERATIVE</div>
+            <h2 class="section-title fade-in-up text-center">Humanity Has No Backup.</h2>
+            <div class="stats-grid">
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">8B</h3>
+                        <p class="stat-desc">SOULS UNPRESERVED</p>
+                    </div>
+                    <div class="tag-label">[ERR.01]</div>
+                </div>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">7K</h3>
+                        <p class="stat-desc">LANGUAGES DYING</p>
+                    </div>
+                    <div class="tag-label">[ERR.02]</div>
+                </div>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">2035</h3>
+                        <p class="stat-desc">AGI IDENTITY RISK</p>
+                    </div>
+                    <div class="tag-label">[CRIT.RISK]</div>
+                </div>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">&infin;</h3>
+                        <p class="stat-desc">HOW LONG YOU'LL EXIST</p>
+                    </div>
+                    <div class="tag-label">[SOLUTION]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">100%</h3>
+                        <p class="stat-desc">MORTALITY RATE TO DATE</p>
+                    </div>
+                    <div class="tag-label">[ERR.01]</div>
+                </div>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">7,000</h3>
+                        <p class="stat-desc">LANGUAGES FACING EXTINCTION</p>
+                    </div>
+                    <div class="tag-label">[ERR.02]</div>
+                </div>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">2035</h3>
+                        <p class="stat-desc">EST. AGI SINGULARITY HORIZON</p>
+                    </div>
+                    <div class="tag-label">[CRIT.RISK]</div>
+                </div>
+                <div class="stat-stark">
+                    <div class="top-line"></div>
+                    <div class="content">
+                        <h3 class="stat-number">&infin;</h3>
+                        <p class="stat-desc">POST-BIOLOGICAL DURATION</p>
+                    </div>
+                    <div class="tag-label">[SOLUTION]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="how-it-works" class="how-it-works section-padding reveal">
+        <div class="container">
+            <div class="sub-tag text-center">// SEQ 02: METHODOLOGY</div>
+            <h2 class="section-title text-center">Even We Can't See Your Soul.</h2>
+            <div class="steps-grid">
+                <div class="step-cell border-right">
+                    <div class="step-num">01. CAPTURE</div>
+                    <h3 class="step-title">Share memories with Everon AI</h3>
+                    <p class="step-desc">High-fidelity transcription of memories, core logic processors, and speech patterns into a lossless neural vector format.</p>
+                </div>
+                <div class="step-cell">
+                    <div class="step-num">02. BUILD</div>
+                    <h3 class="step-title">AI creates your digital twin</h3>
+                    <p class="step-desc">Rendering the biological data into an autonomous neural net, preserving consciousness across multiple decentralized rendering arrays.</p>
+                </div>
+                <div class="step-cell border-top border-right">
+                    <div class="step-num">03. SECURE</div>
+                    <h3 class="step-title">Trinity Shield encrypts everything</h3>
+                    <p class="step-desc">Military-grade cold-storage encryption. Zero-knowledge protocols ensure the data remains unreadable by any external entity, including us.</p>
+                </div>
+                <div class="step-cell border-top">
+                    <div class="step-num">04. EXIST</div>
+                    <h3 class="step-title">Your soul lives on forever</h3>
+                    <p class="step-desc">A continuous, decentralized existence. Bridging the gap long after biological hardware constraints fade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: GLOBAL NODE TERMINAL -->
+    <section id="global-nodes" class="section-padding reveal border-top">
+        <div class="container">
+            <div class="sub-tag">// SEQ 03: INFRASTRUCTURE</div>
+            <h2 class="section-title">Global Node Terminal</h2>
+            <div class="node-terminal-grid">
+                <div class="map-view">
+                    <canvas id="global-map"></canvas>
+                    <div class="map-overlay">
+                        <div class="coordinate-marker top-left">[ORBITAL_VIEW_ACTIVE]</div>
+                        <div class="coordinate-marker bottom-right">SECURED_NODES: 14</div>
+                    </div>
+                </div>
+                <div class="node-status-panel">
+                    <div class="panel-header">NODE_TELEMETRY</div>
+                    <div id="active-node-info" class="panel-body">
+                        <div class="p-row"><span class="label">LOCATION:</span> <span class="val" id="node-loc">SVALBARD ARC</span></div>
+                        <div class="p-row"><span class="label">STATUS:</span> <span class="val green" id="node-status">ENCRYPTED</span></div>
+                        <div class="p-row"><span class="label">LATENCY:</span> <span class="val" id="node-lat">12MS</span></div>
+                        <div class="p-row"><span class="label">STORAGE:</span> <span class="val" id="node-storage">1.28 PB</span></div>
+                        <div class="p-row"><span class="label">UPTIME:</span> <span class="val">99.999%</span></div>
+                    </div>
+                    <div class="panel-footer">[HOVER_NODES_FOR_DATA]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: NEURAL VOICE LAB -->
+    <section id="voice-lab" class="section-padding reveal border-top">
+        <div class="container">
+            <div class="sub-tag">// SEQ 04: RECONSTRUCTION</div>
+            <h2 class="section-title">Neural Voice Synthesis</h2>
+            <div class="voice-lab-grid">
+                <div class="lab-controls">
+                    <p class="tagline small">Auditory Proof of Concept: Synthetic Reconstruction of Subject 01.</p>
+                    <div class="audio-player-stark">
+                        <button id="playback-btn" class="btn-stark circle">
+                            <span class="icon" id="play-icon">▶</span>
+                            <div class="fill-slider"></div>
+                        </button>
+                        <div class="audio-info">
+                            <span class="mono-link">FRQ_RECON_ALPHA.MP3</span>
+                            <span class="status" id="audio-status">SYSTEM_READY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="visualizer-container">
+                    <canvas id="audio-visualizer"></canvas>
+                    <div class="vis-tags">
+                        <span>20Hz</span>
+                        <span>NEURAL_STREAM</span>
+                        <span>20kHz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: ENGINEERING FAQ -->
+    <section id="faq" class="section-padding reveal border-top">
+        <div class="container">
+            <div class="sub-tag">// SEQ 05: PROTOCOL_QUERY</div>
+            <h2 class="section-title">Engineering FAQ</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span class="q">WHAT HAPPENS IN THE EVENT OF CORPORATE DISSOLUTION?</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-body">
+                        The Everon Decentralized Protocol (EDP) is built on an autonomous smart-contract layer. Even if EVERON Industries dissolves, the 14 planetary nodes are pre-funded to maintain self-operation for 100+ years.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span class="q">WHO RETAINS LEGAL OWNERSHIP OF THE DIGITAL TWIN?</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-body">
+                        Ownership is strictly biometrically linked. Your digital twin is classified as your "Legal Property" under the Soul Execution Charter, encrypted with your private key. Not even our engineers can access it.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span class="q">HOW IS NEURAL DRIFT PREVENTED?</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-body">
+                        We use zero-latency error correction algorithms that cross-reference your original neural topography hashes every 200ms to ensure the AI twin remains 1:1 with your core personality matrix.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <span class="q">IS THERE A DELAY IN CONSCIOUSNESS SUBSTRATE?</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-body">
+                        The current latency is 14ms—virtually indistinguishable from biological reaction times. We are aiming for <5ms with our upcoming Mars-Alpha upgrade.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta hero reveal">
+        <div class="hero-bg darkened cta-bg">
+            <div class="hero-overlay centered"></div>
+        </div>
+        <div class="cta-content container text-center">
+            <div class="sub-tag">// SEQ 03: REGISTRATION</div>
+            <h2 class="stark-title small-stark">Your body has an expiry.<br>You don't.</h2>
+            
+            <form class="waitlist-form stark-form center-form">
+                <input type="email" name="email" placeholder="ENTER EMAIL ADDRESS" required class="input-stark">
+                <button type="submit" class="btn-stark hover-fill">
+                    <span class="btn-text">PRESERVE MY SOUL</span>
+                    <div class="fill-slider"></div>
+                </button>
+            </form>
+            <div class="form-feedback"></div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-logo">
+                <div>EVERON</div>
+                <div style="font-size: 0.75rem; color: var(--text-gray); font-family: var(--font-mono); margin-top: 0.5rem; letter-spacing: 1px;">You end. You don't. &middot; Est. 2025</div>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html" class="mono-link" style="text-decoration: none;">Privacy Policy</a>
+                <a href="terms.html" class="mono-link" style="text-decoration: none;">Terms &amp; Conditions</a>
+            </div>
+            <div class="footer-copy">&copy; 2025 Everon. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
