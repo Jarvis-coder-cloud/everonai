@@ -120,17 +120,13 @@ function initGlobalMap() {
     resize();
 
     let hoveredNode = null;
-    canvas.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        const mx = e.clientX - rect.left;
-        const my = e.clientY - rect.top;
-        
+    const handleMove = (mx, my) => {
         let found = null;
         nodes.forEach(node => {
             const nx = node.x * width;
             const ny = node.y * height;
             const dist = Math.sqrt((mx - nx)**2 + (my - ny)**2);
-            if (dist < 15) found = node;
+            if (dist < 25) found = node; // Increased hit area for touch
         });
 
         if (found !== hoveredNode) {
@@ -142,7 +138,18 @@ function initGlobalMap() {
                 document.getElementById('node-storage').innerText = found.storage;
             }
         }
+    };
+
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        handleMove(e.clientX - rect.left, e.clientY - rect.top);
     });
+
+    canvas.addEventListener('touchstart', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        handleMove(touch.clientX - rect.left, touch.clientY - rect.top);
+    }, { passive: true });
 
     function draw() {
         ctx.clearRect(0, 0, width, height);
@@ -212,6 +219,14 @@ function initVoiceLab() {
             analyzer.fftSize = 64;
             dataArray = new Uint8Array(analyzer.frequencyBinCount);
         }
+
+        // Sync canvas resolution with display size
+        const resizeVis = () => {
+            visualizer.width = visualizer.offsetWidth;
+            visualizer.height = visualizer.offsetHeight;
+        };
+        window.addEventListener('resize', resizeVis);
+        resizeVis();
 
         if (isPlaying) {
             audio.pause();
