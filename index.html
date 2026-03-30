@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVERONSPACE - Neural Preservation Protocol</title>
-    <meta name="description" content="EVERONSPACE: A Deep-Tech startup bridging biological limitations.">
+    <title>EVERONSPACE — The Home of Future-Ready Missions</title>
+    <meta name="description" content="EVERONSPACE: Building the bridge where you never truly leave. High-fidelity digital twins, decentralized consciousness archives, and biological engineering for life beyond Earth.">
     <!-- Deep-Tech Fonts: Space Grotesk & Roboto Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +12,190 @@
     <!-- Supabase JS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ── MISSION CARDS ── */
+        .missions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            margin-top: 3rem;
+        }
+        .mission-card {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+            align-items: start;
+            transition: background 0.3s ease;
+        }
+        .mission-card:last-child { border-bottom: none; }
+        .mission-card:hover { background: rgba(255,255,255,0.02); }
+        .mission-id {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            letter-spacing: 3px;
+            padding-top: 0.3rem;
+        }
+        .mission-body h3 {
+            font-family: var(--font-main);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .mission-body p {
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            max-width: 600px;
+        }
+        .mission-sub {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 2px;
+            margin-top: 1rem;
+            display: block;
+        }
+        .mission-tag-coming {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--text-gray);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.3rem 0.75rem;
+        }
+        .missions-footer {
+            margin-top: 2.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 3px;
+        }
+
+        /* ── IMPERATIVE SECTION ── */
+        .imperative-block {
+            max-width: 800px;
+        }
+        .imperative-stat {
+            font-family: var(--font-main);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .imperative-body {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-gray);
+        }
+        .imperative-body strong {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* ── HOW IT WORKS — vertical steps ── */
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0;
+            margin-top: 3rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .how-step {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+        }
+        .how-step:last-child { border-right: none; }
+        .how-step-num {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--text-gray);
+            margin-bottom: 1.25rem;
+        }
+        .how-step h3 {
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .how-step p {
+            font-family: var(--font-main);
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+        .how-step-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2.5rem;
+            background: #fff;
+        }
+
+        /* ── CTA PIONEERS ── */
+        .pioneers-wrap {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .pioneers-wrap .tagline {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+        }
+        .privacy-note {
+            margin-top: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        /* ── HERO DUAL TAGLINE ── */
+        .hero-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255,255,255,0.25);
+            margin: 1.75rem 0;
+        }
+        .hero-tagline-2 {
+            font-family: var(--font-main);
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            line-height: 1.8;
+            color: rgba(255,255,255,0.45);
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            .mission-card {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .how-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .how-step:last-child { border-bottom: none; }
+        }
+    </style>
 </head>
 <body>
     <div class="cursor-dot"></div>
+
+    <!-- ── NAVBAR ── -->
     <nav class="navbar blur-nav">
         <a href="index.html" class="logo" style="color: white; text-decoration: none;">EVERONSPACE</a>
         <div class="nav-status">
@@ -22,306 +203,225 @@
             <span class="nav-tag">Accepting pioneers</span>
         </div>
     </nav>
+
+    <!-- ══════════════════════════════════════
+         HERO — The home of future-ready missions
+    ══════════════════════════════════════ -->
     <section id="hero" class="hero">
         <canvas id="particles-canvas"></canvas>
         <div class="hero-bg darkened">
             <div class="hero-overlay"></div>
         </div>
-        
+
         <div class="hero-content reveal">
-            <div class="sub-tag">// SEQ 00: INITIALIZATION</div>
-            <h1 class="stark-title">EVERONSPACE</h1>
-            <p class="tagline">Your body has an expiration date.<br>Your consciousness does not.</p>
-            
+            <div class="sub-tag">// EVERONSPACE &nbsp;·&nbsp; Est. 2025</div>
+            <h1 class="stark-title">The home of<br>future-ready missions.</h1>
+
+            <div class="hero-divider"></div>
+
+            <p class="tagline">
+                Your body has an expiration date.<br>
+                Your consciousness does not have to.
+            </p>
+            <p class="hero-tagline-2">
+                We are not building another memorial.<br>
+                We are building the bridge<br>where you never truly leave.
+            </p>
+
             <form class="waitlist-form stark-form">
                 <input type="email" name="email" placeholder="ENTER EMAIL ADDRESS" required class="input-stark">
                 <button type="submit" class="btn-stark hover-fill">
-                    <span class="btn-text">INITIATE UPLOAD</span>
-                    <!-- Slider for fill effect -->
+                    <span class="btn-text">INITIATE YOUR LEGACY</span>
                     <div class="fill-slider"></div>
                 </button>
             </form>
             <div class="form-feedback"></div>
-            
+
             <p class="live-counter">
                 <span class="status-indicator live"></span>
                 ACTIVE PROTOCOLS: <span class="counter-number">3,241</span>
             </p>
         </div>
-        
+
         <div class="coordinate-marker bottom-right">LAT: 32.7767° N / LON: 96.7970° W</div>
         <div class="coordinate-marker bottom-left">SYS.V.1.0.4</div>
     </section>
 
-    <section id="human-legacy" class="section-padding reveal border-top">
-        <div class="container stark-grid legacy-grid">
-            <div class="left-col">
-                <div class="sub-tag">// TRANSLATING TECHNOLOGY</div>
-                <h2 class="stark-title small-stark">Your Legacy. <br>Translated.</h2>
-                <p class="tagline">Neural engineering is complex. <br>The reason is simple.</p>
-            </div>
-            <div class="right-col legacy-cards">
-                <div class="legacy-card border-bottom">
-                    <span class="mono-link tracking-wider">[01] VOICE ARCHIVING</span>
-                    <p>Never lose the sound of a loved one's laughter. We preserve every inflection, pause, and whisper.</p>
-                </div>
-                <div class="legacy-card border-bottom">
-                    <span class="mono-link tracking-wider">[02] MEMORY CLOUD</span>
-                    <p>Think of it as a cloud backup for your soul. Your stories and wisdom, stored in a lossless digital substrate.</p>
-                </div>
-                <div class="legacy-card">
-                    <span class="mono-link tracking-wider">[03] GENERATIONAL BRIDGE</span>
-                    <p>Speak to your great-grandchildren 100 years from now. Share advice as if you were still in the room.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- ══════════════════════════════════════
+         TICKER
+    ══════════════════════════════════════ -->
     <section class="ticker">
         <div class="ticker-content">
-            <p>CRITICAL EVENT HORIZON: 2035 &nbsp;&middot;&nbsp; 8,192PB SECURED &nbsp;&middot;&nbsp; 14 PLANETARY NODES ACTIVE &nbsp;&middot;&nbsp; CRITICAL EVENT HORIZON: 2035 &nbsp;&middot;&nbsp; 8,192PB SECURED &nbsp;&middot;&nbsp; 14 PLANETARY NODES ACTIVE</p>
+            <p>ACTIVE MISSIONS: 3 &nbsp;·&nbsp; EVERONTWIN IN DEVELOPMENT &nbsp;·&nbsp; EVERONVAULT COMING SOON &nbsp;·&nbsp; EVERONBIOPLANETRY COMING SOON &nbsp;·&nbsp; ACTIVE MISSIONS: 3 &nbsp;·&nbsp; EVERONTWIN IN DEVELOPMENT &nbsp;·&nbsp; EVERONVAULT COMING SOON &nbsp;·&nbsp; EVERONBIOPLANETRY COMING SOON</p>
         </div>
     </section>
-    <section id="problem" class="problem section-padding reveal">
+
+    <!-- ══════════════════════════════════════
+         ACTIVE MISSIONS
+    ══════════════════════════════════════ -->
+    <section id="missions" class="section-padding reveal border-top">
         <div class="container">
-            <div class="sub-tag text-center fade-in-up">// SEQ 01: THE IMPERATIVE</div>
-            <h2 class="section-title fade-in-up text-center">Humanity Has No Backup.</h2>
-            <div class="stats-grid">
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">8B</h3>
-                        <p class="stat-desc">SOULS UNPRESERVED</p>
+            <div class="sub-tag">// ACTIVE MISSIONS</div>
+            <h2 class="stark-title small-stark" style="margin-top: 0.5rem;">What we're building.</h2>
+
+            <div class="missions-grid">
+
+                <!-- 01 EVERONTWIN -->
+                <div class="mission-card">
+                    <div class="mission-id">[01] EVERONTWIN</div>
+                    <div class="mission-body">
+                        <h3>High-fidelity living digital twins.</h3>
+                        <p>
+                            Capture your voice, memories, personality, emotions, and wisdom.
+                            Create a continuation of yourself that speaks, remembers, and feels like you — today and for generations to come.
+                        </p>
+                        <span class="mission-sub">
+                            While you are alive → Your twin grows with you.<br>
+                            When the time comes → The transition is seamless. You continue.
+                        </span>
+                        <p style="margin-top: 1.25rem; color: rgba(255,255,255,0.6); font-style: italic;">
+                            Never lose the sound of laughter.<br>
+                            Never lose the wisdom of a lifetime.
+                        </p>
                     </div>
-                    <div class="tag-label">[ERR.01]</div>
                 </div>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">7K</h3>
-                        <p class="stat-desc">LANGUAGES DYING</p>
+
+                <!-- 02 EVERONVAULT -->
+                <div class="mission-card">
+                    <div class="mission-id">[02] EVERONVAULT</div>
+                    <div class="mission-body">
+                        <h3>Decentralized archive of preserved consciousness.</h3>
+                        <p>
+                            The decentralized archive of humanity's most valuable knowledge and preserved consciousness —
+                            built to survive across planets and centuries.
+                        </p>
+                        <span class="mission-tag-coming">COMING SOON</span>
                     </div>
-                    <div class="tag-label">[ERR.02]</div>
                 </div>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">2035</h3>
-                        <p class="stat-desc">AGI IDENTITY RISK</p>
+
+                <!-- 03 EVERONBIOPLANETRY -->
+                <div class="mission-card">
+                    <div class="mission-id">[03] EVERONBIOPLANETRY</div>
+                    <div class="mission-body">
+                        <h3>Biological engineering for life beyond Earth.</h3>
+                        <p>
+                            Engineering biological systems for life beyond Earth.
+                            Growing sustainable ecosystems on Mars and other planets.
+                        </p>
+                        <span class="mission-tag-coming">COMING SOON</span>
                     </div>
-                    <div class="tag-label">[CRIT.RISK]</div>
                 </div>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">&infin;</h3>
-                        <p class="stat-desc">HOW LONG YOU'LL EXIST</p>
-                    </div>
-                    <div class="tag-label">[SOLUTION]</div>
-                </div>
+
             </div>
+
+            <p class="missions-footer">// AND MANY MORE MISSIONS ON THE WAY</p>
         </div>
     </section>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">100%</h3>
-                        <p class="stat-desc">MORTALITY RATE TO DATE</p>
-                    </div>
-                    <div class="tag-label">[ERR.01]</div>
-                </div>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">7,000</h3>
-                        <p class="stat-desc">LANGUAGES FACING EXTINCTION</p>
-                    </div>
-                    <div class="tag-label">[ERR.02]</div>
-                </div>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">2035</h3>
-                        <p class="stat-desc">EST. AGI SINGULARITY HORIZON</p>
-                    </div>
-                    <div class="tag-label">[CRIT.RISK]</div>
-                </div>
-                <div class="stat-stark">
-                    <div class="top-line"></div>
-                    <div class="content">
-                        <h3 class="stat-number">&infin;</h3>
-                        <p class="stat-desc">POST-BIOLOGICAL DURATION</p>
-                    </div>
-                    <div class="tag-label">[SOLUTION]</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="how-it-works" class="how-it-works section-padding reveal">
+
+    <!-- ══════════════════════════════════════
+         THE IMPERATIVE
+    ══════════════════════════════════════ -->
+    <section id="imperative" class="section-padding reveal border-top">
         <div class="container">
-            <div class="sub-tag text-center">// SEQ 02: METHODOLOGY</div>
-            <h2 class="section-title text-center">Even We Can't See Your Soul.</h2>
-            <div class="steps-grid">
-                <div class="step-cell border-right">
-                    <div class="step-num">01. CAPTURE</div>
-                    <h3 class="step-title">Share memories with EveronSpace AI</h3>
-                    <p class="step-desc">High-fidelity transcription of memories, core logic processors, and speech patterns into a lossless neural vector format.</p>
-                </div>
-                <div class="step-cell">
-                    <div class="step-num">02. BUILD</div>
-                    <h3 class="step-title">AI creates your digital twin</h3>
-                    <p class="step-desc">Rendering the biological data into an autonomous neural net, preserving consciousness across multiple decentralized rendering arrays.</p>
-                </div>
-                <div class="step-cell border-top border-right">
-                    <div class="step-num">03. SECURE</div>
-                    <h3 class="step-title">Trinity Shield encrypts everything</h3>
-                    <p class="step-desc">Military-grade cold-storage encryption. Zero-knowledge protocols ensure the data remains unreadable by any external entity, including us.</p>
-                </div>
-                <div class="step-cell border-top">
-                    <div class="step-num">04. EXIST</div>
-                    <h3 class="step-title">Your soul lives on forever</h3>
-                    <p class="step-desc">A continuous, decentralized existence. Bridging the gap long after biological hardware constraints fade.</p>
-                </div>
+            <div class="sub-tag">// THE IMPERATIVE</div>
+            <div class="imperative-block">
+                <p class="imperative-stat">8 billion souls.<br>Most will fade forever.</p>
+                <p class="imperative-body">
+                    We believe humanity deserves better.<br><br>
+                    <strong>Not just memories — but living continuations.</strong><br>
+                    <strong>Not just archives — but eternal presence.</strong>
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- NEW: GLOBAL NODE TERMINAL -->
-    <section id="global-nodes" class="section-padding reveal border-top">
+    <!-- ══════════════════════════════════════
+         HOW IT WORKS
+    ══════════════════════════════════════ -->
+    <section id="how-it-works" class="section-padding reveal border-top">
         <div class="container">
-            <div class="sub-tag">// SEQ 03: INFRASTRUCTURE</div>
-            <h2 class="section-title">Global Node Terminal</h2>
-            <div class="node-terminal-grid">
-                <div class="map-view">
-                    <canvas id="global-map"></canvas>
-                    <div class="map-overlay">
-                        <div class="coordinate-marker top-left">[ORBITAL_VIEW_ACTIVE]</div>
-                        <div class="coordinate-marker bottom-right">SECURED_NODES: 14</div>
-                    </div>
+            <div class="sub-tag">// SEQ 02: HOW IT WORKS</div>
+            <h2 class="section-title">From human to eternal.</h2>
+
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="how-step-accent"></div>
+                    <div class="how-step-num">01. CAPTURE</div>
+                    <h3>Share your world</h3>
+                    <p>Voice clips, chats, photos, stories, and moments. We preserve every inflection, pause, and emotion in high-fidelity.</p>
                 </div>
-                <div class="node-status-panel">
-                    <div class="panel-header">NODE_TELEMETRY</div>
-                    <div id="active-node-info" class="panel-body">
-                        <div class="p-row"><span class="label">LOCATION:</span> <span class="val" id="node-loc">SVALBARD ARC</span></div>
-                        <div class="p-row"><span class="label">STATUS:</span> <span class="val green" id="node-status">ENCRYPTED</span></div>
-                        <div class="p-row"><span class="label">LATENCY:</span> <span class="val" id="node-lat">12MS</span></div>
-                        <div class="p-row"><span class="label">STORAGE:</span> <span class="val" id="node-storage">1.28 PB</span></div>
-                        <div class="p-row"><span class="label">UPTIME:</span> <span class="val">99.999%</span></div>
-                    </div>
-                    <div class="panel-footer">[HOVER_NODES_FOR_DATA]</div>
+                <div class="how-step">
+                    <div class="how-step-accent"></div>
+                    <div class="how-step-num">02. BUILD</div>
+                    <h3>Your twin is born</h3>
+                    <p>Our AI creates your EveronTWIN — an interactive continuation that reflects your true self.</p>
                 </div>
+                <div class="how-step">
+                    <div class="how-step-accent"></div>
+                    <div class="how-step-num">03. SECURE</div>
+                    <h3>Privacy, always</h3>
+                    <p>Your data stays private and encrypted. It belongs to you and your family. Always.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-accent"></div>
+                    <div class="how-step-num">04. CONTINUE</div>
+                    <h3>Bridge generations</h3>
+                    <p>Your twin lives on — speaking to children, grandchildren, and beyond. A generational bridge that never breaks.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06);">
+                <p class="tagline" style="font-size: 1.4rem; margin-bottom: 0.5rem;">You end.</p>
+                <p class="tagline" style="font-size: 1.4rem; color: #fff;">But you don't have to.</p>
             </div>
         </div>
     </section>
 
-    <!-- NEW: NEURAL VOICE LAB -->
-    <section id="voice-lab" class="section-padding reveal border-top">
-        <div class="container">
-            <div class="sub-tag">// SEQ 04: RECONSTRUCTION</div>
-            <h2 class="section-title">Neural Voice Synthesis</h2>
-            <div class="voice-lab-grid">
-                <div class="lab-controls">
-                    <p class="tagline small">Auditory Proof of Concept: Synthetic Reconstruction of Subject 01.</p>
-                    <div class="audio-player-stark">
-                        <button id="playback-btn" class="btn-stark circle">
-                            <span class="icon" id="play-icon">▶</span>
-                            <div class="fill-slider"></div>
-                        </button>
-                        <div class="audio-info">
-                            <span class="mono-link">FRQ_RECON_ALPHA.MP3</span>
-                            <span class="status" id="audio-status">SYSTEM_READY</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="visualizer-container">
-                    <canvas id="audio-visualizer"></canvas>
-                    <div class="vis-tags">
-                        <span>20Hz</span>
-                        <span>NEURAL_STREAM</span>
-                        <span>20kHz</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: ENGINEERING FAQ -->
-    <section id="faq" class="section-padding reveal border-top">
-        <div class="container">
-            <div class="sub-tag">// SEQ 05: PROTOCOL_QUERY</div>
-            <h2 class="section-title">Engineering FAQ</h2>
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span class="q">WHAT HAPPENS IN THE EVENT OF CORPORATE DISSOLUTION?</span>
-                        <span class="icon"></span>
-                    </div>
-                    <div class="faq-body">
-                        The EveronSpace Decentralized Protocol (EDP) is built on an autonomous smart-contract layer. Even if EVERONSPACE Industries dissolves, the 14 planetary nodes are pre-funded to maintain self-operation for 100+ years.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span class="q">WHO RETAINS LEGAL OWNERSHIP OF THE DIGITAL TWIN?</span>
-                        <span class="icon"></span>
-                    </div>
-                    <div class="faq-body">
-                        Ownership is strictly biometrically linked. Your digital twin is classified as your "Legal Property" under the Soul Execution Charter, encrypted with your private key. Not even our engineers can access it.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span class="q">HOW IS NEURAL DRIFT PREVENTED?</span>
-                        <span class="icon"></span>
-                    </div>
-                    <div class="faq-body">
-                        We use zero-latency error correction algorithms that cross-reference your original neural topography hashes every 200ms to ensure the AI twin remains 1:1 with your core personality matrix.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span class="q">IS THERE A DELAY IN CONSCIOUSNESS SUBSTRATE?</span>
-                        <span class="icon"></span>
-                    </div>
-                    <div class="faq-body">
-                        The current latency is 14ms—virtually indistinguishable from biological reaction times. We are aiming for <5ms with our upcoming Mars-Alpha upgrade.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- ══════════════════════════════════════
+         CTA — JOIN THE PIONEERS
+    ══════════════════════════════════════ -->
     <section id="cta" class="cta hero reveal">
         <div class="hero-bg darkened cta-bg">
             <div class="hero-overlay centered"></div>
         </div>
         <div class="cta-content container text-center">
-            <div class="sub-tag">// SEQ 03: REGISTRATION</div>
-            <h2 class="stark-title small-stark">Your body has an expiry.<br>You don't.</h2>
-            
-            <form class="waitlist-form stark-form center-form">
-                <input type="email" name="email" placeholder="ENTER EMAIL ADDRESS" required class="input-stark">
-                <button type="submit" class="btn-stark hover-fill">
-                    <span class="btn-text">PRESERVE MY SOUL</span>
-                    <div class="fill-slider"></div>
-                </button>
-            </form>
-            <div class="form-feedback"></div>
+            <div class="sub-tag">// JOIN THE PIONEERS</div>
+            <h2 class="stark-title small-stark">
+                Be among the first<br>to create your EveronTWIN.
+            </h2>
+
+            <div class="pioneers-wrap">
+                <p class="tagline">Privacy first. Your data. Your legacy. Your rules.</p>
+                <form class="waitlist-form stark-form center-form">
+                    <input type="email" name="email" placeholder="ENTER EMAIL ADDRESS" required class="input-stark">
+                    <button type="submit" class="btn-stark hover-fill">
+                        <span class="btn-text">PRESERVE MY LEGACY</span>
+                        <div class="fill-slider"></div>
+                    </button>
+                </form>
+                <div class="form-feedback"></div>
+                <p class="privacy-note">YOUR DATA IS ENCRYPTED AND BELONGS ONLY TO YOU</p>
+            </div>
         </div>
     </section>
+
+    <!-- ══════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════ -->
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-logo">
                 <div>EVERONSPACE</div>
-                <div style="font-size: 0.75rem; color: var(--text-gray); font-family: var(--font-mono); margin-top: 0.5rem; letter-spacing: 1px;">You end. You don't. &middot; Est. 2025</div>
+                <div style="font-size: 0.75rem; color: var(--text-gray); font-family: var(--font-mono); margin-top: 0.5rem; letter-spacing: 1px;">Future-ready missions &middot; Est. 2025</div>
             </div>
             <div class="footer-links">
                 <a href="privacy.html" class="mono-link" style="text-decoration: none;">Privacy Policy</a>
                 <a href="terms.html" class="mono-link" style="text-decoration: none;">Terms &amp; Conditions</a>
             </div>
-            <div class="footer-copy">&copy; 2025 EveronSpace. All rights reserved.</div>
+            <div class="footer-copy">&copy; 2026 EveronSpace. All rights reserved.</div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

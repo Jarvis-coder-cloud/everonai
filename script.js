@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if(slider) slider.style.left = '0';
                         updateCounter();
                         setTimeout(() => {
-                            btnText.innerText = 'PRESERVE MY SOUL';
+                            btnText.innerText = btn.closest('form').classList.contains('center-form') ? 'PRESERVE MY LEGACY' : 'INITIATE YOUR LEGACY';
                             feedback.innerText = '';
                             if(slider) slider.style.left = '-100%';
                         }, 5000);
