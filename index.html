@@ -165,14 +165,14 @@
             color: rgba(255,255,255,0.25);
         }
 
-        /* ── HERO HEADLINE (smaller alternative to stark-title) ── */
-        .hero-headline {
-            font-size: clamp(1.6rem, 3.5vw, 3rem);
-            font-weight: 400;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: #fff;
+        /* ── HERO SUBTITLE (beneath EVERONSPACE title) ── */
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--text-gray);
+            margin-bottom: 0;
+            text-transform: uppercase;
         }
 
         /* ── HERO DUAL TAGLINE ── */
@@ -224,8 +224,9 @@
         </div>
 
         <div class="hero-content reveal">
-            <div class="sub-tag">// EVERONSPACE &nbsp;·&nbsp; Est. 2025</div>
-            <h1 class="hero-headline">The home of future-ready missions.</h1>
+            <div class="sub-tag">// SEQ 00: INITIALIZATION</div>
+            <h1 class="stark-title">EVERONSPACE</h1>
+            <p class="hero-subtitle">The home of future-ready missions.&nbsp;&nbsp;·&nbsp;&nbsp;Est. 2025</p>
 
             <div class="hero-divider"></div>
 
@@ -235,7 +236,7 @@
             </p>
             <p class="hero-tagline-2">
                 We are not building another memorial.<br>
-                We are building the bridge<br>where you never truly leave.
+                We are building the bridge where you never truly leave.
             </p>
 
             <form class="waitlist-form stark-form">
